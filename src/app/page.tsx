@@ -1,10 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ProfileCard } from '../components/ProfileCard';
 import { ProjectCard } from '../components/ProjectCard';
+import { CvCard } from '../components/CvCard';
 import { profile } from '../data/profile';
 import { projects } from '../data/projects';
+import { cvArticles } from '../data/cv';
 
 export default function HomePage() {
   return (
@@ -69,12 +72,27 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="projects" className="container-grid pt-10 sm:pt-14 pb-16">
-          <h2 className="section-title">Projects</h2>
+        <section id="projects" className="container-grid pt-10 sm:pt-14">
+          <div className="flex items-end justify-between gap-4">
+            <h2 className="section-title">Projects</h2>
+            <Link href="/projects" className="text-brand hover:underline text-sm">View all</Link>
+          </div>
           <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {projects.map((p) => (
+            {projects.slice(0, 4).map((p) => (
               <ProjectCard key={p.title} project={p} />)
             )}
+          </div>
+        </section>
+
+        <section id="cv" className="container-grid pt-10 sm:pt-14 pb-16">
+          <div className="flex items-end justify-between gap-4">
+            <h2 className="section-title">Experience</h2>
+            <Link href="/resume" className="text-brand hover:underline text-sm">View full CV</Link>
+          </div>
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {cvArticles.slice(0, 4).map((item) => (
+              <CvCard key={`${item.title}-${item.org ?? ''}`} item={item} />
+            ))}
           </div>
         </section>
       </div>

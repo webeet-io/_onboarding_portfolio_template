@@ -16,8 +16,9 @@ export function Header() {
           <span className="font-semibold">{profile.name}</span>
         </Link>
         <nav className="flex items-center gap-4 text-sm">
-          <a href="#projects" className="hover:underline">Projects</a>
-          <a href={profile.resumeUrl} className="hover:underline" target="_blank" rel="noreferrer noopener">Resume</a>
+          <Link href="/" className="hover:underline">Home</Link>
+          <Link href="/projects" className="hover:underline">Projects</Link>
+          <Link href={profile.resumeUrl} className="hover:underline">Resume</Link>
           <button
             onClick={toggleDark}
             className="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
