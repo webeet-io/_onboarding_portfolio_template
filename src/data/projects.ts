@@ -9,19 +9,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Project One',
+    title: 'AI Neighborhood Insights (Company)',
     description:
-      'Short summary explaining what you built, the problem it solves, and your role. Keep it focused and outcome-oriented.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      'Implemented LLM orchestration to generate neighborhood scores and visualized them as a choropleth on a map-centric interface. Built BFF endpoints to orchestrate data for SSR React views.',
+    tags: ['RAG', 'LLM', 'MapLibre', 'Fastify', 'React (SSR)', 'TypeScript'],
+    image: '/images/project-placeholder.svg',
+    link: undefined,
+    repo: undefined,
+  },
+  {
+    title: 'Instagram Clone',
+    description:
+      'Full-stack social media clone with React Router v7, Fastify backend, Zod validation, and comprehensive Jest TDD testing. Features include user authentication, post creation, real-time likes/comments, and responsive design.',
+    tags: ['React Router v7', 'Fastify', 'Zod', 'Jest', 'TDD', 'TypeScript'],
     image: '/images/project-placeholder.svg',
     link: '#',
     repo: '#',
   },
   {
-    title: 'Project Two',
+    title: 'Testing Platform & CI Stability',
     description:
-      'Another concise description highlighting impact, performance gains, or user adoption. Mention key responsibilities.',
-    tags: ['React', 'Node.js'],
+      'Authored comprehensive Jest unit/integration tests and Playwright E2E suites with fixtures. Set up Pytest for Python services and smoke checks to stabilize CI pipelines.',
+    tags: ['Playwright', 'Jest', 'Pytest', 'Selenium'],
     image: '/images/project-placeholder.svg',
     link: '#',
     repo: '#',

@@ -12,8 +12,8 @@ html, body, #__next {
 
 body {
   @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased;
-  background-image: radial-gradient(ellipse at top, rgba(14,165,233,0.06), transparent 55%),
-    radial-gradient(ellipse at bottom, rgba(34,211,238,0.06), transparent 55%);
+  background-image: radial-gradient(ellipse at top, rgba(16,185,129,0.03), transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(74,222,128,0.03), transparent 55%);
 }
 
 .container-grid {
@@ -54,9 +54,58 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+/* Even more subtle motion */
+@keyframes float-subtle {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -10px, 0) scale(1.02); }
+}
+
+@keyframes hue {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Slow, wide panning across the viewport */
+@keyframes pan {
+  0% { transform: translate3d(-20vw, -10vh, 0) scale(1); }
+  50% { transform: translate3d(15vw, 8vh, 0) scale(1.03); }
+  100% { transform: translate3d(-20vw, -10vh, 0) scale(1); }
+}
+
 @layer utilities {
   .animate-float-slow { animation: float 18s ease-in-out infinite; }
   .animate-float-slower { animation: float 28s ease-in-out infinite; }
   .animate-drift { animation: drift 60s linear infinite; }
+  .animate-float-subtle { animation: float-subtle 40s ease-in-out infinite; }
+  .animate-float-subtler { animation: float-subtle 60s ease-in-out infinite; }
+  .animate-drift-subtle { animation: drift 120s linear infinite; }
+  .animate-float-hue-subtle { animation: float-subtle 40s ease-in-out infinite, hue 90s linear infinite; }
+  .animate-float-hue-subtler { animation: float-subtle 60s ease-in-out infinite, hue 120s linear infinite; }
+  .animate-drift-hue-subtle { animation: drift 120s linear infinite, hue 180s linear infinite; }
+  .animate-pan-120 { animation: pan 160s ease-in-out infinite; }
+  .animate-pan-180 { animation: pan 220s ease-in-out infinite; }
+  .animate-hue-120 { animation: hue 120s linear infinite; }
+  .animate-hue-180 { animation: hue 180s linear infinite; }
+  .will-change-transform { will-change: transform; }
+  .will-change-transform-filter { will-change: transform, filter; }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-drift,
+  .animate-float-subtle,
+  .animate-float-subtler,
+  .animate-drift-subtle,
+  .animate-float-hue-subtle,
+  .animate-float-hue-subtler,
+  .animate-drift-hue-subtle,
+  .animate-pan-120,
+  .animate-pan-180,
+  .animate-hue-120,
+  .animate-hue-180 {
+    animation: none !important;
+  }
 }
 

@@ -5,30 +5,38 @@ export type CvArticle = {
   period?: string;
   bullets: string[];
   tags?: string[];
+  type: 'work' | 'education';
 };
 
 export const cvArticles: CvArticle[] = [
   {
     title: 'Software Engineering Intern',
-    org: 'Example Corp',
-    location: 'Remote',
-    period: 'Jun 2024 – Aug 2024',
+    org: 'Webeet',
+    location: 'Amsterdam, Remote',
+    period: 'Start date – End date',
     bullets: [
-      'Built a full‑stack feature in Next.js + Node, improving task completion speed by 18%.',
-      'Wrote Playwright tests covering core user flows; stabilized E2E checks in CI.',
+      'Designed and shipped SSR React features via a BFF layer in Fastify to orchestrate data dependencies and improve first load performance.',
+      'Implemented foundations for a RAG service to power conversational AI and contextual insights.',
+      'Practiced TDD with Jest/Playwright (Node) and Pytest (Python); stabilized CI pipelines with smoke tests and fixtures.',
+      'Collaborated on PostgreSQL schema design and SQLAlchemy migrations; partnered with DevSecOps and Data teams for safe deploys.',
     ],
-    tags: ['Next.js', 'TypeScript', 'Playwright'],
+    tags: ['React (SSR)', 'Fastify', 'FastAPI', 'RAG', 'Zustand', 'Zod', 'MapLibre', 'PostgreSQL'],
+    type: 'work',
   },
   {
     title: 'QA Intern',
-    org: 'Acme Inc.',
-    location: 'San Francisco, CA',
-    period: 'Jan 2024 – May 2024',
+    org: 'Example (Prior Experience)',
+    location: 'Remote',
+    period: 'Earlier',
     bullets: [
-      'Designed and executed Selenium and Pytest suites for regression coverage.',
-      'Implemented Great Expectations checks on analytics pipeline to prevent schema drift.',
+      'Practiced TDD with Jest (unit/integration) and Playwright (E2E); implemented automated suites integrated into CI/CD pipelines.',
+      'Owned CI/CD test workflows, adding smoke checks and flake mitigation to stabilize pipelines and shorten feedback loops.',
+      'Designed Selenium and Pytest suites for regression coverage across core user journeys.',
+      'Introduced Great Expectations checks to detect schema drift in analytics pipelines.',
+      'Gained strong practical experience in building maintainable QA frameworks, communicating findings, and measuring impact on delivery speed and quality.',
     ],
-    tags: ['Selenium', 'Pytest', 'Great Expectations'],
+    tags: ['Playwright', 'Jest', 'CI/CD', 'Selenium', 'Pytest', 'Great Expectations'],
+    type: 'work',
   },
 ];
 

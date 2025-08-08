@@ -48,6 +48,9 @@ export function ProjectCard({ project }: { project: Project }) {
               </svg>
             </a>
           )}
+          {!project.link && !project.repo && (
+            <span className="text-xs text-neutral-500 dark:text-neutral-400 italic">Company project</span>
+          )}
         </div>
       </div>
     </article>

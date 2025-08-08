@@ -3,6 +3,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { profile } from '../data/profile';
 import { DarkModeProvider } from '../components/DarkModeProvider';
+import { AmbientDrift } from '../components/AmbientDrift';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <DarkModeProvider>
+          <AmbientDrift />
           {children}
         </DarkModeProvider>
       </body>

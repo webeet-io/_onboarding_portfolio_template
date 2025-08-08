@@ -11,13 +11,7 @@ import { cvArticles } from '../data/cv';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col relative">
-      {/* Animated gradient background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-br from-brand/30 to-emerald-400/30 blur-3xl animate-float-slower" />
-        <div className="absolute top-1/3 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-emerald-400/25 to-brand/25 blur-3xl animate-float-slow" />
-        <div className="absolute bottom-[-6rem] left-1/3 h-80 w-80 rounded-full bg-gradient-to-tr from-brand/20 to-emerald-400/20 blur-3xl animate-drift" />
-      </div>
+    <main className="min-h-screen flex flex-col">
 
       <Header />
 
