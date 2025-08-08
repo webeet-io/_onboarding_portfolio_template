@@ -23,10 +23,30 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="mt-4 flex items-center gap-3 text-sm">
           {project.link && (
-            <a className="text-brand hover:underline" href={project.link} target="_blank" rel="noreferrer noopener">Live</a>
+            <a
+              className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 bg-brand/15 text-brand hover:bg-brand/20 active:bg-brand/25 transition-colors"
+              href={project.link}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Live
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           )}
           {project.repo && (
-            <a className="text-brand hover:underline" href={project.repo} target="_blank" rel="noreferrer noopener">Code</a>
+            <a
+              className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 border border-brand/30 text-brand hover:bg-brand/10 active:bg-brand/15 transition-colors"
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Code
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+              </svg>
+            </a>
           )}
         </div>
       </div>

@@ -9,8 +9,8 @@ export function Header() {
   const { isDark, toggleDark } = useDarkMode();
 
   return (
-    <header className="border-b border-neutral-200/70 dark:border-neutral-800">
-      <div className="container-grid py-4 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 border-b border-neutral-200/50 dark:border-neutral-800/60 bg-white/60 dark:bg-neutral-950/40 backdrop-blur-md">
+      <div className="container-grid py-3 sm:py-4 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/images/logo.svg" width={28} height={28} alt="Logo" />
           <span className="font-semibold">{profile.name}</span>

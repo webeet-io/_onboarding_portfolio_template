@@ -8,20 +8,27 @@ import { projects } from '../data/projects';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col relative">
+      {/* Animated gradient background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-br from-brand/30 to-emerald-400/30 blur-3xl animate-float-slower" />
+        <div className="absolute top-1/3 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-emerald-400/25 to-brand/25 blur-3xl animate-float-slow" />
+        <div className="absolute bottom-[-6rem] left-1/3 h-80 w-80 rounded-full bg-gradient-to-tr from-brand/20 to-emerald-400/20 blur-3xl animate-drift" />
+      </div>
+
       <Header />
 
       <div className="flex-1">
         <section className="container-grid pt-10 sm:pt-14">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-6 lg:gap-8">
-            <div className="card p-5 md:p-6">
+            <div className="card hero-card p-5 md:p-6">
               <div className="flex items-center gap-4">
                 <Image
                   src={profile.avatar}
                   alt={`${profile.name} avatar`}
                   width={88}
                   height={88}
-                  className="rounded-full border border-neutral-200 dark:border-neutral-800"
+                  className="rounded-full border border-neutral-200/40 dark:border-neutral-800/40 bg-white/40 dark:bg-neutral-900/40"
                 />
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-semibold">{profile.name}</h1>

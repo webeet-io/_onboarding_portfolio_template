@@ -12,6 +12,8 @@ html, body, #__next {
 
 body {
   @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased;
+  background-image: radial-gradient(ellipse at top, rgba(14,165,233,0.06), transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(34,211,238,0.06), transparent 55%);
 }
 
 .container-grid {
@@ -19,15 +21,18 @@ body {
 }
 
 .section-title {
-  @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+  @apply text-2xl sm:text-3xl font-semibold tracking-tight bg-gradient-to-r from-brand to-cyan-400 bg-clip-text text-transparent;
 }
 
 .card {
-  @apply rounded-xl border border-neutral-200/70 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-soft;
+  @apply rounded-xl border border-neutral-200/50 dark:border-neutral-800/60 bg-white/60 dark:bg-neutral-900/50 backdrop-blur-md;
+}
+.hero-card {
+  @apply border-neutral-200/40 dark:border-neutral-800/40 bg-white/40 dark:bg-neutral-900/40;
 }
 
 .badge {
-  @apply inline-flex items-center rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200;
+  @apply inline-flex items-center rounded-full bg-neutral-100/70 dark:bg-neutral-800/60 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200 backdrop-blur;
 }
 
 /* Subtle image hover on project cards */
@@ -36,5 +41,22 @@ body {
 }
 .card:hover .project-image {
   @apply scale-105;
+}
+
+/* Animated ambient background utilities */
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -12px, 0) scale(1.03); }
+}
+
+@keyframes drift {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .animate-float-slow { animation: float 18s ease-in-out infinite; }
+  .animate-float-slower { animation: float 28s ease-in-out infinite; }
+  .animate-drift { animation: drift 60s linear infinite; }
 }
 

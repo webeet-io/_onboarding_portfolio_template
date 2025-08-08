@@ -25,7 +25,7 @@ export const profile: Profile = {
   email: 'you@example.com',
   lookingFor: 'Summer 2025 Internship',
   avatar: '/images/avatar.svg',
-  resumeUrl: '#',
+  resumeUrl: '/resume',
   skills: [
     'TypeScript',
     'React',
