@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "generate:types": "npx sanity@latest schema extract && pnpm dlx sanity@latest typegen generate"
   },
   "dependencies": {
     "@sanity/icons": "^3.7.4",
