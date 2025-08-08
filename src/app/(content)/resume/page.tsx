@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { PrintButton } from "../../../components/PrintButton";
 import { cvArticles as MockCvArticles } from "../../../data/cv";
-import { profile } from "../../../data/profile";
+import { profile as MockProfile } from "../../../data/profile";
 import { getCvArticles, getProfile } from "src/data-access/sanity";
 
 export default async function ResumePage() {
   const sanityCvArticles = await getCvArticles();
   const sanityProfile = await getProfile();
+
+  const cvArticles = sanityCvArticles.length === 0 ? MockCvArticles : sanityCvArticles;
+  const profile =
+    Object.keys(sanityProfile).length === 0 ? MockProfile : sanityProfile;
 
   return (
     <section className="container-grid py-10 sm:py-14 flex-1">
@@ -16,32 +20,32 @@ export default async function ResumePage() {
           <PrintButton />
         </div>
         <div className="mt-6 space-y-4 text-sm leading-6">
-          <p className="font-semibold">{(sanityProfile || profile).name}</p>
+          <p className="font-semibold">{profile.name}</p>
           <p className="text-neutral-600 dark:text-neutral-300">
-            {(sanityProfile || profile).role}
+            {profile.role}
           </p>
           <p>
             <a
               className="text-brand hover:underline"
-              href={`mailto:${(sanityProfile || profile).email}`}
+              href={`mailto:${profile.email}`}
             >
-              {(sanityProfile || profile).email}
+              {profile.email}
             </a>
             <span className="mx-2">·</span>
-            <span>{(sanityProfile || profile).location}</span>
+            <span>{profile.location}</span>
           </p>
           <hr className="border-neutral-200/60 dark:border-neutral-800/60" />
-          <p>{(sanityProfile || profile).summary}</p>
+          <p>{profile.summary}</p>
           <div>
             <p className="font-medium">Skills</p>
             <p className="mt-1 text-neutral-700 dark:text-neutral-300">
-              {(sanityProfile || profile).skills.join(" · ")}
+              {profile.skills?.join(" · ")}
             </p>
           </div>
           <div>
             <p className="font-medium">Experience & Projects</p>
             <div className="mt-2 space-y-5">
-              {(sanityCvArticles ?? MockCvArticles).map((a) => (
+              {cvArticles.map((a) => (
                 <article key={`${a.title}-${a.org ?? ""}`}>
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h2 className="font-semibold">{a.title}</h2>
@@ -77,7 +81,7 @@ export default async function ResumePage() {
           <div>
             <p className="font-medium">Links</p>
             <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
-              {(sanityProfile || profile).links.map((l) => (
+              {profile.links?.map((l) => (
                 <li key={l.href}>
                   <a
                     className="text-brand hover:underline"
