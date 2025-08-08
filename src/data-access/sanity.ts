@@ -1,15 +1,33 @@
-import { client } from "src/sanity/lib/client";
 import {
   type Project as SanityProject,
   type CvArticle as SanityCvArtikle,
   type Profile as SanityProfile,
 } from "../../sanity.types";
-import { urlFor } from "src/sanity/lib/image";
-import { type Project } from "src/data/projects";
-import { type CvArticle } from "src/data/cv";
-import { Profile } from "src/data/profile";
+import type { Profile, CvArticle, Project } from "src/data";
+
+const checkSanityIntegration = () => {
+  return (
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
+    process.env.NEXT_PUBLIC_SANITY_DATASET
+  );
+};
+
+async function getSanityClient() {
+  if (!checkSanityIntegration()) return {};
+
+  const { client } = await import("src/sanity/lib/client");
+  const { urlFor } = await import("src/sanity/lib/image");
+
+  return { client, urlFor };
+}
+
+const { client, urlFor } = await getSanityClient();
 
 export async function getProjects() {
+  if (!client) {
+    return [];
+  }
+
   const projects = await client.fetch<SanityProject[]>("*[_type == 'project']");
 
   return projects.map((project) => ({
@@ -19,6 +37,10 @@ export async function getProjects() {
 }
 
 export async function getCvArticles() {
+  if (!client) {
+    return [];
+  }
+
   const articles = await client.fetch<SanityCvArtikle[]>(
     "*[_type == 'cvArticle']"
   );
@@ -27,7 +49,11 @@ export async function getCvArticles() {
 }
 
 export async function getProfile() {
-  const profile = await client.fetch<SanityProfile>("*[_type == 'profile']");
+  if (!client) {
+    return {} as Profile;
+  }
+
+  const profile = await client.fetch<SanityProfile>("*[_type == 'profile'][0]");
 
   return {
     ...profile,

@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { ProfileCard } from "../components/ProfileCard";
 import { ProjectCard } from "../components/ProjectCard";
 import { CvCard } from "../components/CvCard";
-import { profile } from "../data/profile";
+import { profile as MockProfile } from "../data/profile";
 import { projects as MockProjects } from "../data/projects";
 import { cvArticles as MockCvArticles } from "../data/cv";
 import { getCvArticles, getProfile, getProjects } from "src/data-access/sanity";
@@ -17,6 +17,14 @@ export default async function HomePage() {
     getProfile(),
   ]);
 
+  console.log({ sanityProfile });
+
+  const profile =
+    Object.keys(sanityProfile).length === 0 ? MockProfile : sanityProfile;
+  const projects = sanityProjects.length === 0 ? MockProjects : sanityProjects;
+  const cvArticles =
+    sanityCvArticles.length === 0 ? MockCvArticles : sanityCvArticles;
+
   return (
     <main className="min-h-screen flex flex-col">
       <Header />
@@ -26,23 +34,23 @@ export default async function HomePage() {
             <div className="card hero-card p-5 md:p-6">
               <div className="flex items-center gap-4">
                 <Image
-                  src={(sanityProfile || profile).avatar}
-                  alt={`${(sanityProfile || profile).name} avatar`}
+                  src={profile.avatar}
+                  alt={`${profile.name} avatar`}
                   width={88}
                   height={88}
                   className="rounded-full border border-neutral-200/40 dark:border-neutral-800/40 bg-white/40 dark:bg-neutral-900/40"
                 />
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-semibold">
-                    {(sanityProfile || profile).name}
+                    {profile.name}
                   </h1>
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    {(sanityProfile || profile).role}
+                    {profile.role}
                   </p>
                 </div>
               </div>
               <p className="mt-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                {(sanityProfile || profile).summary}
+                {profile.summary}
               </p>
               <ProfileCard />
             </div>
@@ -51,7 +59,7 @@ export default async function HomePage() {
               <div className="card p-5 md:p-6">
                 <h2 className="section-title">Skills</h2>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {(sanityProfile || profile).skills.map((skill) => (
+                  {profile.skills?.map((skill) => (
                     <span key={skill} className="badge">
                       {skill}
                     </span>
@@ -61,7 +69,7 @@ export default async function HomePage() {
               <div className="card p-5 md:p-6">
                 <h2 className="section-title">Links</h2>
                 <ul className="mt-3 space-y-2 text-sm">
-                  {profile.links.map((link) => (
+                  {profile.links?.map((link) => (
                     <li key={link.href}>
                       <a
                         className="text-brand hover:underline"
@@ -90,7 +98,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {(sanityProjects ?? MockProjects).slice(0, 4).map((p) => (
+            {projects.slice(0, 4).map((p) => (
               <ProjectCard key={p.title} project={p} />
             ))}
           </div>
@@ -104,7 +112,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {(sanityCvArticles ?? MockCvArticles).slice(0, 4).map((item) => (
+            {cvArticles.slice(0, 4).map((item) => (
               <CvCard key={`${item.title}-${item.org ?? ""}`} item={item} />
             ))}
           </div>
