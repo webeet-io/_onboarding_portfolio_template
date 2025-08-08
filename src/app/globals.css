@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased;
+}
+
+.container-grid {
+  @apply max-w-6xl mx-auto px-4 sm:px-6;
+}
+
+.section-title {
+  @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+}
+
+.card {
+  @apply rounded-xl border border-neutral-200/70 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-soft;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200;
+}
+
+/* Subtle image hover on project cards */
+.card .project-image {
+  @apply transition-transform duration-300 ease-out will-change-transform;
+}
+.card:hover .project-image {
+  @apply scale-105;
+}
+
