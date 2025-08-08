@@ -9,32 +9,30 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'AI Neighborhood Insights (Company)',
+    title: "Layered AI (Webeet.io)",
     description:
-      'Implemented LLM orchestration to generate neighborhood scores and visualized them as a choropleth on a map-centric interface. Built BFF endpoints to orchestrate data for SSR React views.',
-    tags: ['RAG', 'LLM', 'MapLibre', 'Fastify', 'React (SSR)', 'TypeScript'],
-    image: '/images/project-placeholder.svg',
+      "Implemented LLM orchestration to generate neighborhood scores and visualized them as a choropleth on a map-centric interface. Built BFF endpoints to orchestrate data for SSR React views.",
+    tags: ["RAG", "LLM", "MapLibre", "Fastify", "React (SSR)", "TypeScript"],
+    image: "/images/project-placeholder.svg",
     link: undefined,
     repo: undefined,
   },
   {
-    title: 'Instagram Clone',
+    title: "Instagram Clone",
     description:
-      'Full-stack social media clone with React Router v7, Fastify backend, Zod validation, and comprehensive Jest TDD testing. Features include user authentication, post creation, real-time likes/comments, and responsive design.',
-    tags: ['React Router v7', 'Fastify', 'Zod', 'Jest', 'TDD', 'TypeScript'],
-    image: '/images/project-placeholder.svg',
-    link: '#',
-    repo: '#',
+      "Full-stack social media clone with React Router v7, Fastify backend, Zod validation, and comprehensive Jest TDD testing. Features include user authentication, post creation, real-time likes/comments, and responsive design.",
+    tags: ["React Router v7", "Fastify", "Zod", "Jest", "TDD", "TypeScript"],
+    image: "/images/project-placeholder.svg",
+    link: "#",
+    repo: "#",
   },
   {
-    title: 'Testing Platform & CI Stability',
+    title: "Testing Platform & CI Stability",
     description:
-      'Authored comprehensive Jest unit/integration tests and Playwright E2E suites with fixtures. Set up Pytest for Python services and smoke checks to stabilize CI pipelines.',
-    tags: ['Playwright', 'Jest', 'Pytest', 'Selenium'],
-    image: '/images/project-placeholder.svg',
-    link: '#',
-    repo: '#',
+      "Authored comprehensive Jest unit/integration tests and Playwright E2E suites with fixtures. Set up Pytest for Python services and smoke checks to stabilize CI pipelines.",
+    tags: ["Playwright", "Jest", "Pytest", "Selenium"],
+    image: "/images/project-placeholder.svg",
+    link: "#",
+    repo: "#",
   },
 ];
-
-
