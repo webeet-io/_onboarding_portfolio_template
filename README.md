@@ -1,7 +1,3 @@
-
-<img width="551" height="214" alt="Screenshot 2025-09-19 at 12 55 41" src="https://github.com/user-attachments/assets/fdc816f2-1fd1-4210-8284-09b31bc9d18d" />
-
-
 # Intern Portfolio Template
 
 
@@ -9,7 +5,34 @@ A minimal, clean portfolio template for SWE and QA interns. Edit your profile an
 
 ## Quickstart
 
+#### Follow these steps:
+1. Fork your repository (forking a repositry will create your own copy of the code)
+2. Clone it (downloads the code to your computer)
+3. Install & Run (you can see your changes live)
+4. Customize (make some changes!)
+
+### Forking the Repository
+
+To create your own copy of this project, you’ll need to fork it.
+Forking means making your own personal copy of someone else’s GitHub repository. This lets you customize it without affecting the original.
+
+1. On this page, in the top-right corner, click Fork.
+2. Choose your GitHub account (not an organization).
+3. After a few seconds, you’ll have your own copy of the repo under your account.
+
+Your fork is now ready to use.
+
+### Setting Up Locally (Optional)
+
+If you want to see or edit the project on your own computer:
+
+1. Clone your fork: ```bash git clone https://github.com/YOUR_USERNAME/portfolio-repo.git```
+2. Open the project folder in your editor (like VS Code).
+
+⚠️ Note: This step is optional if you just want to deploy the default template as-is. You can deploy directly from GitHub without ever running it locally.
+
 ### Install & Run
+
 ```bash
 # Install dependencies
 npm install
@@ -21,7 +44,7 @@ npm run dev
 npm run build
 ```
 
-Open `http://localhost:3000` to see your portfolio.
+Open your browser and type `http://localhost:3000` in your URL to see your portfolio.
 
 ## Customize Your Portfolio
 
@@ -114,7 +137,28 @@ colors: {
 
 ## Deploy to Vercel
 
-### One-time Setup
+### Create a Project
+
+To put your portfolio online, you’ll use [Vercel](https://vercel.com/) You don’t need to use the terminal for this—Vercel provides a very simple web interface.
+
+1. Create a Vercel Account - sign up (you can use your GitHub account for easy setup).
+2. Create a Workspace - Workspaces help you organize your projects. You can create one for yourself or for your team.
+3. Add a New Project
+  4. Click "New Project" in your Vercel dashboard.
+  5. Select the repository you forked (your personal portfolio repo).
+4. (Optional) Connect a Custom Domain - If you want a personalized link (like yourname.vercel.app or your own domain), you can configure this in the Vercel settings.
+
+### Option 1: Deploying to Vercel Using GUI (Vercel Website)
+
+#### To deploy the Project:
+
+1. Go to your project
+2. Click Deploy.
+
+After a few seconds, your portfolio will be live on a unique URL that Vercel provides.
+
+### Option 2: Using CLI
+
 ```bash
 # Install Vercel CLI
 npm install -g vercel
@@ -123,7 +167,8 @@ npm install -g vercel
 vercel login
 ```
 
-### Deploy
+#### Deploy
+
 ```bash
 # Build your project
 npm run build
@@ -135,7 +180,7 @@ vercel deploy --prebuilt
 vercel deploy --prebuilt --prod
 ```
 
-### Alternative: Deploy without global install
+#### Alternative: Deploy without global install
 ```bash
 npx vercel@latest deploy --prebuilt
 ```
