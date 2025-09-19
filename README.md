@@ -1,4 +1,7 @@
+<img width="1420" height="1080" alt="tw7b7dsezm081" src="https://github.com/user-attachments/assets/17c2d9c4-26de-45dd-a2ff-b8e4d2cc88b5" />
+
 # Intern Portfolio Template
+
 
 A minimal, clean portfolio template for SWE and QA interns. Edit your profile and projects in `src/data/`, replace images in `public/images/`, and deploy with Vercel.
 
