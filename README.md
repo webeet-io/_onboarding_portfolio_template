@@ -1,4 +1,6 @@
-<img width="1420" height="1080" alt="tw7b7dsezm081" src="https://github.com/user-attachments/assets/17c2d9c4-26de-45dd-a2ff-b8e4d2cc88b5" />
+
+<img width="551" height="214" alt="Screenshot 2025-09-19 at 12 55 41" src="https://github.com/user-attachments/assets/fdc816f2-1fd1-4210-8284-09b31bc9d18d" />
+
 
 # Intern Portfolio Template
 
