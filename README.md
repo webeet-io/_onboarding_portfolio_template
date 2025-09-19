@@ -1,4 +1,4 @@
-# SWE/QA Intern Portfolio Template
+# Intern Portfolio Template
 
 A minimal, clean portfolio template for SWE and QA interns. Edit your profile and projects in `src/data/`, replace images in `public/images/`, and deploy with Vercel.
 
